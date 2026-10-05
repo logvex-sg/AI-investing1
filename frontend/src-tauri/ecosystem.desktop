@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name={{name}}
+GenericName=AI Research Ecosystem
+Comment={{comment}}
+Exec={{exec}} {{exec_arg}}
+Icon={{icon}}
+Terminal=false
+Categories=Development;Science;Finance;
+Keywords=AI;agents;research;trading;simulation;portfolio;
+StartupNotify=true
+StartupWMClass=ECOSYSTEM
