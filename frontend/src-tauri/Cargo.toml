@@ -1,0 +1,44 @@
+[package]
+name = "ecosystem-desktop"
+version = "0.1.0"
+description = "ECOSYSTEM — local AI research ecosystem desktop shell"
+authors = ["ECOSYSTEM"]
+edition = "2021"
+rust-version = "1.77"
+default-run = "ecosystem-desktop"
+
+[lib]
+name = "ecosystem_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["image-png"] }
+tauri-plugin-shell = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+tokio = { version = "1", features = ["process", "time", "sync", "rt-multi-thread", "macros", "fs"] }
+# The shell only ever talks to 127.0.0.1 over plain HTTP, so no TLS backend is
+# compiled in. This keeps the desktop build small and avoids native TLS deps.
+reqwest = { version = "0.12", default-features = false, features = ["json"] }
+sysinfo = "0.39"
+uuid = { version = "1", features = ["v4"] }
+dirs = "6"
+
+[features]
+# Default Tauri custom-protocol build. `tauri dev` disables it.
+custom-protocol = ["tauri/custom-protocol"]
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

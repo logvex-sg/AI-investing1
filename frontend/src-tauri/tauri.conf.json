@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "ECOSYSTEM",
+  "version": "0.1.0",
+  "identifier": "dev.ecosystem.desktop",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "features": ["custom-protocol"]
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "ECOSYSTEM",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1040,
+        "minHeight": 680,
+        "resizable": true,
+        "maximizable": true,
+        "minimizable": true,
+        "closable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "visible": false,
+        "center": true,
+        "theme": "Dark",
+        "backgroundColor": "#05070d"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' ipc: http://ipc.localhost http://127.0.0.1:* http://localhost:*; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb", "appimage"],
+    "category": "DeveloperTool",
+    "shortDescription": "Local AI Research Ecosystem",
+    "longDescription": "ECOSYSTEM is a local-first AI research and portfolio-simulation ecosystem: an Overseer coordinating up to eight investor agents across research, strategy generation, backtesting, paper trading and human-approved execution. Everything runs on your machine.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.png"
+    ],
+    "resources": [],
+    "externalBin": ["binaries/ecosystem-backend"],
+    "linux": {
+      "deb": {
+        "depends": [
+          "libwebkit2gtk-4.1-0",
+          "libgtk-3-0",
+          "postgresql (>= 14)",
+          "postgresql-17-pgvector | postgresql-16-pgvector | postgresql-15-pgvector | postgresql-14-pgvector"
+        ],
+        "section": "science",
+        "priority": "optional",
+        "desktopTemplate": "ecosystem.desktop"
+      },
+      "appimage": {
+        "bundleMediaFramework": false
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+# Secrets — never commit
+.env
+*.env
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Rust / Tauri build output and staged sidecar binaries
+frontend/src-tauri/target/
+frontend/src-tauri/gen/
+frontend/src-tauri/binaries/
+
+# PyInstaller output
+backend/build/
+backend/dist/
+
+# Local runtime data
+data/*.db
+data/*.sqlite
+data/backups/
+logs/
+*.log
+.agent_tmp/

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=ECOSYSTEM
+GenericName=AI Research Ecosystem
+Comment=Local-first AI research and portfolio-simulation ecosystem
+Exec=ecosystem-desktop
+TryExec=ecosystem-desktop
+Icon=ecosystem
+Terminal=false
+Categories=Development;Science;Finance;
+Keywords=AI;agents;research;trading;simulation;portfolio;
+StartupNotify=true
+StartupWMClass=ECOSYSTEM
